@@ -325,16 +325,16 @@ If there is no match, the tag will be added to this table. The ```name``` of the
 
 ### Default Data
 
-| ```name``` | ```tag``` | ```fixed_size``` | ```max_size``` | ```item_size``` |
-| - | - | - | - | - | - |
-| ```padding``` *(see Note 1)*| ```00``` | - | - | - |
-| ```pubkey``` | ```01``` | 32 | - | - |
-| ```extra_nonce``` | ```02``` | - | 255 *(see Note 2)* | - |
-| ```payment_id``` | ```022100``` *(see Note 3)* | 32 | - | - |
-| ```payment_id8``` | ```020901``` *(see Note 3)* | 8 | - | - |
-| ```merge_mining``` | ```03``` | - | - | - |
-| ```pubkey_additional``` | ```04``` | - | - | 32 *(see Note 4)* |
-| ```mysterious_minergate``` | ```DE``` | - | - | - |
+| ```name``` | ```tag``` | ```fixed_size``` | ```max_size``` | ```item_size``` |  
+| - | - | - | - | - |
+| ```padding``` *(see Note 1)*| ```00``` | - | - | - |  
+| ```pubkey``` | ```01``` | 32 | - | - |  
+| ```extra_nonce``` | ```02``` | - | 255 *(see Note 2)* | - |  
+| ```payment_id``` | ```022100``` *(see Note 3)* | 32 | - | - |  
+| ```payment_id8``` | ```020901``` *(see Note 3)* | 8 | - | - |  
+| ```merge_mining``` | ```03``` | - | - | - |  
+| ```pubkey_additional``` | ```04``` | - | - | 32 *(see Note 4)* |  
+| ```mysterious_minergate``` | ```DE``` | - | - | - |  
 
 ### Notes
 1. **Padding tag**: CryptoNote Standard 005 [[1, page 2]](#References) specifies some rules for the padding tag (numbering ours): 

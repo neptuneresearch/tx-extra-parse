@@ -26,7 +26,7 @@
 - [Procedure tx_extra_test()](#Procedure-tx_extra_test)
     - [Parameters](#Parameters-2)
     - [tx_extra_process tests](#tx_extra_process-tests)
-    - [tx_extra_parse_tests](#tx_extra_parse-tests)
+    - [tx_extra_parse tests](#tx_extra_parse-tests)
 - [Procedure tx_extra_schema()](#Procedure-tx_extra_schema)
 - [Procedure tx_extra_schema_indices()](#Procedure-tx_extra_schema_indices)
 - [Materialized View tx_extra_tag_count](#Materialized-View-tx_extra_tag_count)

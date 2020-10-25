@@ -312,7 +312,7 @@ Lookup table of known tags.
 
 To read the next tag, the parser queries this table for the ```tag``` value which matches the longest possible sequence of bytes at the beginning of the parse buffer. The tag is usually the next single byte, but this query permits known tags to use any number of bytes, including bytes from the size and value. For example, ```payment_id```, ```payment_id8```, and ```extra_nonce``` all start with the byte value ```02```. ```payment_id``` and ```payment_id8``` are subclasses of ```extra_nonce```, differentiated by their length (byte 2 of their ```tag``` value) and the first byte of the value (byte 3 of their ```tag``` value). Since the longest possible sequence of bytes is matched, when the buffer starts with all of ```022100```, ```payment_id``` wins over ```extra_nonce```.
 
-If there is no match, the tag will be added to this table. The ```name``` of the new tag will be the Tx Extra Tag Id (```tx_extra_tag_id```) of the originating tag where the tag was first seen.
+If there is no match, the tag will be added to this table. The ```name``` of the new tag will be the ```tx_extra_tag_id``` of the originating tag where the tag was first seen.
 
 | Column | Description | Type | Constraint |
 | - | - | - | - |
@@ -379,15 +379,13 @@ If there is no match, the tag will be added to this table. The ```name``` of the
 
 
 ## Table ```tx_extra_tag_list```
-Tag ordering per transaction.
-
-Tag ordering is a by-product of parsing the extra data.
+List of tags used by a transaction, in their original order.
 
 Since the contents of the transaction extra data field are not verified [[1]](#References), tags may be added in any order. Like all metadata, this ordering is a fingerprint.
 
- It would also be possible to determine tag ordering through a query on ```tx_extra_data``` across a given transaction. Such a query would return an identical result to the data in this table.
+It would also be possible to determine tag ordering through a query on ```tx_extra_data``` across a given transaction. Such a query would return an identical result to the data in this table.
 
-The tag ordering data is recorded as a ```BYTEA``` column, ```tag_ordering```, which consists of only the tag bytes from the transaction's extra data, in their original order. Additionally, another copy is written as the Tag Ordering String, where some tags are disambiguated.
+The tag ordering data is recorded as a ```BYTEA``` column, ```tag_list```, which consists of only the tag bytes from the transaction's extra data, in their original order. Additionally, another copy is written as the Tag List String, ```tag_list_string```, where some tags are disambiguated.
 
 
 | Column | Description | Type | Constraint |
@@ -505,16 +503,16 @@ Count each tag present per transaction.
 
 | Column | Description | Type |
 | - | - | - |
-| block_height | Block height | `BIGINT` |
-| tx_hash | Transaction hash | `BYTEA` |
-| n_padding | Number of tags: `padding` | `BIGINT` (per `COUNT`) |
-| n_pubkey | Number of tags: `pubkey` | `BIGINT` (per `COUNT`) |
-| n_extra_nonce | Number of tags: `extra_nonce` | `BIGINT` (per `COUNT`) |
-| n_payment_id | Number of tags: `payment_id` | `BIGINT` (per `COUNT`) |
-| n_payment_id8 | Number of tags: `payment_id8` | `BIGINT` (per `COUNT`) |
-| n_merge_mining | Number of tags: `merge_mining` | `BIGINT` (per `COUNT`) |
-| n_pubkey_additional | Number of tags: `pubkey_additional` | `BIGINT` (per `COUNT`) |
-| n_mysterious_minergate | Number of tags of type: `mysterious_minergate` | `BIGINT` (per `COUNT`) |
+| ```block_height``` | Block height | `BIGINT` |
+| ```tx_hash``` | Transaction hash | `BYTEA` |
+| ```n_padding``` | Number of tags: `padding` | `BIGINT` (per `COUNT`) |
+| ```n_pubkey``` | Number of tags: `pubkey` | `BIGINT` (per `COUNT`) |
+| ```n_extra_nonce``` | Number of tags: `extra_nonce` | `BIGINT` (per `COUNT`) |
+| ```n_payment_id``` | Number of tags: `payment_id` | `BIGINT` (per `COUNT`) |
+| ```n_payment_id8``` | Number of tags: `payment_id8` | `BIGINT` (per `COUNT`) |
+| ```n_merge_mining``` | Number of tags: `merge_mining` | `BIGINT` (per `COUNT`) |
+| ```n_pubkey_additional``` | Number of tags: `pubkey_additional` | `BIGINT` (per `COUNT`) |
+| ```n_mysterious_minergate``` | Number of tags of type: `mysterious_minergate` | `BIGINT` (per `COUNT`) |
 
 
 ---

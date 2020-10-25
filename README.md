@@ -6,30 +6,30 @@
 - [Overview](#Overview)
 - [Requirements](#Requirements)
 - [Installation](#Installation)
-- [Procedure tx_extra_parse()](#Procedure_tx_extra_parse)
+- [Procedure tx_extra_parse()](#Procedure-tx_extra_parse)
   - [Parameters](#Parameters)
-  - [Output Modes](#Output_Modes)
+  - [Output Modes](#Output-Modes)
   - [Examples](#Examples)
 - [Schema](#Schema)
-  - [Table tx_extra_data](#Table_tx_extra_data)
-    - Notes
-    - Indices
-  - [Table tx_extra_tag](#Table_tx_extra_tag)
-    - Default Data
-    - Notes
-  - [Table tx_extra_tag_list](#Table_tx_extra_tag_list)
-    - Tag List String
-    - Indices
-- [Procedure tx_extra_process()](#Procedure_tx_extra_process)
-    - Parameters
-    - Examples
-- [Procedure tx_extra_test()](#Procedure_tx_extra_test)
-    - Parameters
-    - Tests
-    - Test utilities
-- [Procedure tx_extra_schema()](#Procedure_tx_extra_schema)
-- [Procedure tx_extra_schema_indices()](#Procedure_tx_extra_schema_indices)
-- [Materialized View tx_extra_tag_count](#Materialized_View_tx_extra_tag_count)
+  - [Table tx_extra_data](#Table-tx_extra_data)
+    - [Notes](#Notes)
+    - [Indices](#Indices)
+  - [Table tx_extra_tag](#Table-tx_extra_tag)
+    - [Default Data](#Default-Data)
+    - [Notes](#Notes-1)
+  - [Table tx_extra_tag_list](#Table-tx_extra_tag_list)
+    - [Tag List String](#Tag-List-String)
+    - [Indices](#Indices-1)
+- [Procedure tx_extra_process()](#Procedure-tx_extra_process)
+    - [Parameters](#Parameters-1)
+    - [Examples](#Examples-1)
+- [Procedure tx_extra_test()](#Procedure-tx_extra_test)
+    - [Parameters](#Parameters-2)
+    - [tx_extra_process tests](#tx_extra_process-tests)
+    - [tx_extra_parse_tests](#tx_extra_parse-tests)
+- [Procedure tx_extra_schema()](#Procedure-tx_extra_schema)
+- [Procedure tx_extra_schema_indices()](#Procedure-tx_extra_schema_indices)
+- [Materialized View tx_extra_tag_count](#Materialized-View-tx_extra_tag_count)
 - [References](#References)
   - [Results](#Results)
 

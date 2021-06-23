@@ -233,7 +233,7 @@ CALL tx_extra_parse(tx_extra, output_mode, block_height, tx_hash, tx_is_coinbase
 | Parameter | Type | Description |
 | - | - | - |
 | ```tx_extra``` | ```BYTEA``` | ```tx_extra``` data to parse. |
-| ```output_mode``` | ```INTEGER``` | *Optional*: See "Output Modes". Defaults to ```NULL``` (Write mode). |
+| ```output_mode``` | ```INTEGER``` | *Optional*: See ["tx_extra_parse: Output Modes"](#Output-Modes). Defaults to ```NULL``` (Write mode). |
 | ```block_height``` | ```BIGINT``` | *Optional*: block height of originating transaction. Not used by the parser; this value is stored in the output record for reference. Defaults to ```0```. |
 | ```tx_hash``` | ```BYTEA``` | *Optional*: transaction hash of originating transaction. Not used by the parser; this value is stored in the output record for reference. Defaults to ```NULL```. |
 | ```tx_is_coinbase``` | ```BOOLEAN``` | *Optional*: type of originating transaction (```TRUE``` for coinbase, ```FALSE``` for user). Not used by the parser; this value is stored in the output record for reference. Defaults to ```NULL```. |
@@ -427,7 +427,7 @@ CALL tx_extra_process(block_height_start, block_height_end, output_mode, coinbas
 | - | - | - |
 | ```block_height_start``` | ```INTEGER``` | Start block height |
 | ```block_height_end``` | ```INTEGER``` | *Optional*: End block height |
-| ```output_mode``` | ```INTEGER``` | *Optional*: See ["tx_extra_parse: Output Modes"](#Output_Modes). Defaults to ```NULL``` (Write mode). |
+| ```output_mode``` | ```INTEGER``` | *Optional*: Output Mode to use when calling ```tx_extra_parse()```. See ["tx_extra_parse: Output Modes"](#Output-Modes). Defaults to ```NULL``` (Write mode). |
 | ```coinbase_only``` | ```BOOLEAN``` | *Optional*: ```TRUE``` to process only coinbase transactions. Defaults to ```FALSE``` (both coinbase and user transactions).|
 
 ## Examples

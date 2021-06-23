@@ -434,7 +434,7 @@ CALL tx_extra_process(block_height_start, block_height_end, output_mode, coinbas
 
 ```
 -- Full sync
-CALL tx_extra_process(1);
+CALL tx_extra_process(0);
 
 -- Debug the range 1220516-1220520
 CALL tx_extra_process(1220516, 1220516, 1);

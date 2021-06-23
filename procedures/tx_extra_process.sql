@@ -44,6 +44,7 @@ BEGIN
         -- LEFT JOIN: Every block has 1 coinbase transaction and 0 or more user transactions
         LEFT JOIN LATERAL unnest(block.transactions) tx(hash, version, unlock_time, vin, vout, extra, fee) ON TRUE
         WHERE block.height >= block_height_start AND (block_height_end IS NULL OR block.height <= block_height_end)
+        ORDER BY block.height ASC
     LOOP
         IF debug_enabled THEN
             RAISE NOTICE 'Coinbase height %', coinbase_height;

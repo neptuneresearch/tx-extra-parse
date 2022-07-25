@@ -425,8 +425,8 @@ CALL tx_extra_process(block_height_start, block_height_end, output_mode, coinbas
 
 | Parameter | Type | Description |
 | - | - | - |
-| ```block_height_start``` | ```INTEGER``` | Start block height |
-| ```block_height_end``` | ```INTEGER``` | *Optional*: End block height |
+| ```block_height_start``` | ```BIGINT``` | Start block height |
+| ```block_height_end``` | ```BIGINT``` | *Optional*: End block height |
 | ```output_mode``` | ```INTEGER``` | *Optional*: Output Mode to use when calling ```tx_extra_parse()```. See ["tx_extra_parse: Output Modes"](#Output-Modes). Defaults to ```NULL``` (Write mode). |
 | ```coinbase_only``` | ```BOOLEAN``` | *Optional*: ```TRUE``` to process only coinbase transactions. Defaults to ```FALSE``` (both coinbase and user transactions).|
 

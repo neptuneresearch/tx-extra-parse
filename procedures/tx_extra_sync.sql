@@ -13,11 +13,11 @@ DECLARE
     */
 
     -- block_height_start: Last block height in tx_extra_data.
-    block_height_start INTEGER;
+    block_height_start BIGINT;
     -- block_height_end: Last block height in blockchain.
-    block_height_end INTEGER;
+    block_height_end BIGINT;
     -- block_count: Number of blocks in target range.
-    block_count INTEGER;
+    block_count BIGINT;
 BEGIN
     -- Read block_height_start
     SELECT MAX(block_height) 

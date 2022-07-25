@@ -1,6 +1,6 @@
 CREATE OR REPLACE PROCEDURE tx_extra_process(
-    block_height_start INTEGER, 
-    block_height_end INTEGER DEFAULT NULL,
+    block_height_start BIGINT, 
+    block_height_end BIGINT DEFAULT NULL,
     output_mode INTEGER DEFAULT NULL,
     coinbase_only BOOLEAN DEFAULT FALSE
 ) LANGUAGE plpgsql AS $$
@@ -21,7 +21,7 @@ DECLARE
     --   rec_extra: Current transaction record.
     rec_extra RECORD;
     --   coinbase_height: Last block height read; when this changes, the coinbase of the current block is sent to the parser.
-    coinbase_height INTEGER;
+    coinbase_height BIGINT;
 BEGIN
     -- block_height_end: If not specified, read max height
     IF block_height_end IS NULL THEN

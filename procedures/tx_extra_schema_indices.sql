@@ -27,26 +27,26 @@ BEGIN
     -- Create indices
     --   tx_extra_data
     RAISE NOTICE 'Creating tx_extra_data_block_height_idx';
-    CREATE INDEX tx_extra_data_block_height_idx ON public.tx_extra_data (block_height);
+    CREATE INDEX tx_extra_data_block_height_idx ON tx_extra_data (block_height);
     RAISE NOTICE 'Creating tx_extra_data_tx_hash_idx';
-    CREATE INDEX tx_extra_data_tx_hash_idx ON public.tx_extra_data (tx_hash);
+    CREATE INDEX tx_extra_data_tx_hash_idx ON tx_extra_data (tx_hash);
     RAISE NOTICE 'Creating tx_extra_data_tx_is_coinbase_idx';
-    CREATE INDEX tx_extra_data_tx_is_coinbase_idx ON public.tx_extra_data (tx_is_coinbase);
+    CREATE INDEX tx_extra_data_tx_is_coinbase_idx ON tx_extra_data (tx_is_coinbase);
     RAISE NOTICE 'Creating tx_extra_data_tx_extra_tag_id_idx';
-    CREATE INDEX tx_extra_data_tx_extra_tag_id_idx ON public.tx_extra_data (tx_extra_tag_id);
+    CREATE INDEX tx_extra_data_tx_extra_tag_id_idx ON tx_extra_data (tx_extra_tag_id);
     RAISE NOTICE 'Creating tx_extra_data_size_idx';
-    CREATE INDEX tx_extra_data_size_idx ON public.tx_extra_data (size);
+    CREATE INDEX tx_extra_data_size_idx ON tx_extra_data (size);
     RAISE NOTICE 'Creating tx_extra_data_data_size_idx';
-    CREATE INDEX tx_extra_data_data_size_idx ON public.tx_extra_data (data_size);
+    CREATE INDEX tx_extra_data_data_size_idx ON tx_extra_data (data_size);
     RAISE NOTICE 'Creating tx_extra_data_data_idx';
-    CREATE INDEX tx_extra_data_data_idx ON public.tx_extra_data (data);
+    CREATE INDEX tx_extra_data_data_idx ON tx_extra_data (data);
     --   tx_extra_tag_list
     RAISE NOTICE 'Creating tx_extra_tag_list_block_height_idx';
-    CREATE INDEX tx_extra_tag_list_block_height_idx ON public.tx_extra_tag_list (block_height);
+    CREATE INDEX tx_extra_tag_list_block_height_idx ON tx_extra_tag_list (block_height);
     RAISE NOTICE 'Creating tx_extra_tag_list_tx_hash_idx';
-    CREATE INDEX tx_extra_tag_list_tx_hash_idx ON public.tx_extra_tag_list (tx_hash);
+    CREATE INDEX tx_extra_tag_list_tx_hash_idx ON tx_extra_tag_list (tx_hash);
     RAISE NOTICE 'Creating tx_extra_tag_list_tag_list_string_idx';
-    CREATE INDEX tx_extra_tag_list_tag_list_string_idx ON public.tx_extra_tag_list (tag_list_string);
+    CREATE INDEX tx_extra_tag_list_tag_list_string_idx ON tx_extra_tag_list (tag_list_string);
     
     RAISE NOTICE 'Indices created';
 END;

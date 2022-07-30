@@ -20,26 +20,35 @@ DECLARE
     block_count BIGINT;
 BEGIN
     -- Read block_height_start
-    SELECT MAX(block_height) 
+    SELECT MAX(block_height)
     INTO block_height_start
     FROM tx_extra_data;
 
     -- Read block_height_end
-    SELECT MAX(height) 
+    SELECT MAX(height)
     INTO block_height_end 
     FROM monero;
 
-    -- Validate heights
-    --  tx_extra_data: If no height, never synced, start from 0
     IF block_height_start IS NULL THEN
+        -- tx_extra_data has never been synced, start at block 0
         block_height_start = 0;
+    ELSE
+        -- tx_extra_data has been synced before, start at the next block
+        block_height_start = block_height_start + 1;
     END IF;
 
-    block_count = block_height_end - block_height_start;
+    -- +1: also count the starting block.
+    block_count = block_height_end - block_height_start + 1;
 
-    RAISE NOTICE 'tx_extra_sync: Height range % - % (% blocks)', block_height_start, block_height_end, block_count;
+    -- block_height_start - 1: this reports the last block in the table, not the next block to parse.
+    RAISE NOTICE 'tx_extra_sync (Status): Height range % - % (% blocks)', block_height_start - 1, block_height_end, block_count;
 
     IF status_only THEN 
+        RETURN;
+    END IF;
+
+    IF block_count = 0 THEN
+        RAISE NOTICE 'tx_extra_sync (Status): Already synchronized';
         RETURN;
     END IF;
 

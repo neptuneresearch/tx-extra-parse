@@ -456,8 +456,11 @@ BEGIN
 
         -- Tag list string: Represent some cases differently
         tag_list_string_byte = CASE
-                -- payment_id8: Distinguish from payment_id by inverting the number
+                -- payment_id8: Distinguish from payment_id and extra_nonce ("02") by inverting the number
                 WHEN tag_name = 'payment_id8' THEN '\x20'
+                -- extra_nonce: Distinguish from payment_id and payment_id8 ("02") by repeating the number
+                WHEN tag_name = 'extra_nonce' THEN '\x22'
+                -- Default case: Use tag byte
                 ELSE tag_byte
             END;
         tag_list_string = CASE WHEN tag_list_string IS NULL THEN tag_list_string_byte ELSE tag_list_string || tag_list_string_byte END;

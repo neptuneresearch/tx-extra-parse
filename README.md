@@ -475,7 +475,7 @@ CALL tx_extra_test(test_id);
 | 9 | Padding tag - Parse padding tag interrupted by valid tags in DEBUG mode |
 | 10 | Padding tag - Parse padding tag interrupted by invalid tags in DEBUG mode |
 | 11 | Padding tag - Parse known padding tag cases which include non-null bytes |
-| 12 | Malformed tag - Remainder case T: see tx f6cff1edd1a7861ed13d494dd4ae7c4a7f42b5c3bf91457310d2166722c1316f) |
+| 12 | Malformed tag - Remainder case T (see tx F6CFF1EDD1A7861ED13D494DD4AE7C4A7F42B5C3BF91457310D2166722C1316F) |
 | 13 | Malformed tag - Remainder case TS |
 | 14 | Malformed tag - Parse known item_size tag with invalid size (see tx E87C675A85F34ECAC58A8846613D25062F1813E1023C552B705AFAD32B972C38) |
 | 15 | Size field - Test varint size decoding |

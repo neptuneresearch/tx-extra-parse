@@ -44,7 +44,7 @@ BEGIN
         CALL tx_extra_parse('\x04020102030401020304010203040102030401020304010203040102030401020304aabbccddaabbccddaabbccddaabbccddaabbccddaabbccddaabbccddaabbccdd', 1);
     END IF;
 
-    --     Parse known array tag with 0 size (see tx #2 02E4F925564EB9A6DC68D59A455A1AB8F67AA5A4B0027A7AC7BA2556E9342759)
+    --     Parse known array tag with 0 size (see tx 02E4F925564EB9A6DC68D59A455A1AB8F67AA5A4B0027A7AC7BA2556E9342759)
     IF test_id = 7 THEN
         CALL tx_extra_process(1440194, 1440194, 1);
     END IF;
@@ -72,7 +72,7 @@ BEGIN
     END IF;
 
     --   Malformed tag
-    --     Remainder case T: see tx #1 f6cff1edd1a7861ed13d494dd4ae7c4a7f42b5c3bf91457310d2166722c1316f)
+    --     Remainder case T (see tx F6CFF1EDD1A7861ED13D494DD4AE7C4A7F42B5C3BF91457310D2166722C1316F)
     IF test_id = 12 THEN
         CALL tx_extra_process(2012557, 2012557, 1);
     END IF;

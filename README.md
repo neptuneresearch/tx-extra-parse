@@ -304,7 +304,8 @@ Block Height and Transaction Hash link a data record back to its origin on the b
 - ```tx_extra_data_tx_extra_tag_id_idx```: index on ```{ tx_extra_tag_id }```
 - ```tx_extra_data_size_idx```: index on ```{ size }```
 - ```tx_extra_data_data_size_idx```: index on ```{ data_size }```
-- ```tx_extra_data_data_idx```: index on ```{ data }```
+- ```tx_extra_data_tx_extra_tag_id_md5_data_idx```: index on ```{ tx_extra_tag_id, md5(data) }```
+- ```tx_extra_data_md5_data_idx```: index on ```{ md5(data) }```
 
 
 ## Table ```tx_extra_tag```

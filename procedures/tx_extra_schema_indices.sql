@@ -16,7 +16,8 @@ BEGIN
     DROP INDEX IF EXISTS tx_extra_data_tx_extra_tag_id_idx;
     DROP INDEX IF EXISTS tx_extra_data_size_idx;
     DROP INDEX IF EXISTS tx_extra_data_data_size_idx;
-    DROP INDEX IF EXISTS tx_extra_data_data_idx;
+    DROP INDEX IF EXISTS tx_extra_data_tx_extra_tag_id_md5_data_idx;
+    DROP INDEX IF EXISTS tx_extra_data_md5_data_idx;
     --   tx_extra_tag_list
     DROP INDEX IF EXISTS tx_extra_tag_list_block_height_idx;
     DROP INDEX IF EXISTS tx_extra_tag_list_tx_hash_idx;
@@ -38,8 +39,10 @@ BEGIN
     CREATE INDEX tx_extra_data_size_idx ON tx_extra_data (size);
     RAISE NOTICE 'Creating tx_extra_data_data_size_idx';
     CREATE INDEX tx_extra_data_data_size_idx ON tx_extra_data (data_size);
-    RAISE NOTICE 'Creating tx_extra_data_data_idx';
-    CREATE INDEX tx_extra_data_data_idx ON tx_extra_data (data);
+    RAISE NOTICE 'Creating tx_extra_data_md5_data_idx';
+    CREATE INDEX tx_extra_data_md5_data_idx ON tx_extra_data (md5(data));
+    RAISE NOTICE 'Creating tx_extra_data_tx_extra_tag_id_md5_data_idx';
+    CREATE INDEX tx_extra_data_tx_extra_tag_id_md5_data_idx ON tx_extra_data (tx_extra_tag_id, md5(data));
     --   tx_extra_tag_list
     RAISE NOTICE 'Creating tx_extra_tag_list_block_height_idx';
     CREATE INDEX tx_extra_tag_list_block_height_idx ON tx_extra_tag_list (block_height);
